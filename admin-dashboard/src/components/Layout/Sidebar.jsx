@@ -27,7 +27,8 @@ function Sidebar() {
                 <img src="" alt="user" className='w-10 h-10 rounded-full ring-2 ring-blue-500' />
                 <div className='flex-1 min-w-0'>
                     <div className='flex-1 min-w-0'>
-                        <p className='text-sm font-medium text-slate-800 dark:text-white truncate'>Ankan Nandy</p>
+                        <p className='text-sm font-medium text-slate-800 dark:text-white truncate'>John Doe</p>
+                        <p className='text-xs text-slate-800 dark:text-white truncate'>Administrator</p>
                     </div>
                 </div>
             </div>
