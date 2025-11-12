@@ -1,11 +1,12 @@
 import React from 'react'
-import { Menu } from 'lucide-react';
+import { ChevronDown, Menu } from 'lucide-react';
 import { Search } from 'lucide-react';
 import { Filter } from 'lucide-react';
 import { Plus } from 'lucide-react';
 import { Sun } from 'lucide-react';
 import { Bell } from 'lucide-react';
 import { Settings } from 'lucide-react';
+
 
 const Header = () => {
   return (
@@ -60,6 +61,7 @@ const Header = () => {
                         <p className='text-sm font-medium text-slate-500 dark:text-slate-400'>John Doe</p>
                         <p className='text-xs text-slate-500 dark:text-slate-400'>Administrator</p>
                     </div>
+                    <ChevronDown className='w-4 h-4 text-slate-600 dark:text-slate-300'/>
                 </div>
             </div>
         </div>
