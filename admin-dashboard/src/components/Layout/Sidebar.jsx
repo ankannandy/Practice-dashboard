@@ -1,10 +1,98 @@
 import React from 'react'
-import { Zap } from 'lucide-react';
+import {
+    BarChart3, Calendar, CreditCard, FileText, LayoutDashboard, MessagesSquare, Package, Settings, Users, ShoppingBag, Zap,
+} from 'lucide-react';
+
+const menuItems = [
+    {
+        id: "dashboard",
+        label: "Dashboard",
+        icon: <LayoutDashboard className='w-5 h-5'/>,
+        active: true,
+        badge: "New",
+    },
+    {
+        id: "analytics",
+        label: "Analytics",
+        icon: <BarChart3 className='w-5 h-5'/>,
+        submenu: [
+            {
+                id: "overview",  
+                label: "Overview",
+            },
+            {
+                id: "reports",  
+                label: "Reports",
+            },
+            {
+                id: "insights",  
+                label: "Insights",
+            },
+        ]
+    },
+    {
+        id: "users",
+        label: "Users",
+        icon: <Users className='w-5 h-5'/>,
+        count: "2.4k",
+        submenu: [
+            {
+                id: "all-users",  
+                label: "All Users",
+            },
+            {
+                id: "roles",  
+                label: "Roles & Permissions",
+            },
+            {
+                id: "activity",  
+                label: "User Activity",
+            },
+        ]
+    },
+    {
+        id: "e-commerce",
+        label: "E-Commerce",
+        icon: <ShoppingBag className='w-5 h-5'/>,
+    },
+    {
+        id: "inventory",
+        label: "Inventory",
+        icon: <Package className='w-5 h-5'/>,
+    },
+    {
+        id: "transactions",
+        label: "Transactions",
+        icon: <CreditCard className='w-5 h-5'/>,
+    },
+    {
+        id: "massages",
+        label: "Massages",
+        icon: <MessagesSquare className='w-5 h-5'/>,
+    },
+    {
+        id: "calendar",
+        label: "Calendar",
+        icon: <Calendar className='w-5 h-5'/>,
+        active: true,
+        badge: "New",
+    },
+    {
+        id: "reports",
+        label: "Reports",
+        icon: <FileText className='w-5 h-5'/>,
+    },
+    {
+        id: "settings",
+        label: "Settings",
+        icon: <FileText className='w-5 h-5'/>,
+    },
+]
 
 
 function Sidebar() {
   return (
-    <div className="transition-duration-300 ease-in-out bg-white/80dark:bg-slate-900/80backdrop-blur-xl border-r border-slate-200/50 dark:border-slate-700/50 flex flex-col relative z-10">
+    <div className=" w-72 transition-duration-300 ease-in-out bg-white/80dark:bg-slate-900/80backdrop-blur-xl border-r border-slate-200/50 dark:border-slate-700/50 flex flex-col relative z-10">
         {/* Logo */}
         <div className="p-6 border-b border-slate-200/50 dark:border-slate-700/50 ">
             <div className="flex items-center space-x-3">
@@ -19,7 +107,9 @@ function Sidebar() {
             </div>
         </div>
         {/* Navigation */}
-        <nav className="flex-1 p-4 space-y-2 overflow-y-auto"></nav>
+        <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
+            
+        </nav>
 
         {/* User Profile */} 
         <div className='p-4 border-t border-slate-200/50 dark:border-slate-700/50'>
