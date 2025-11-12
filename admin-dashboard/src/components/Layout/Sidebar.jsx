@@ -1,20 +1,20 @@
 import React from 'react'
 import {
-    BarChart3, Calendar, CreditCard, FileText, LayoutDashboard, MessagesSquare, Package, Settings, Users, ShoppingBag, Zap,
+    BarChart3, Calendar, CreditCard, FileText, LayoutDashboard, MessagesSquare, Package, Settings, Users, ShoppingBag, Zap, SettingsIcon,
 } from 'lucide-react';
 
 const menuItems = [
     {
         id: "dashboard",
         label: "Dashboard",
-        icon: <LayoutDashboard className='w-5 h-5'/>,
+        icon: LayoutDashboard,
         active: true,
         badge: "New",
     },
     {
         id: "analytics",
         label: "Analytics",
-        icon: <BarChart3 className='w-5 h-5'/>,
+        icon: BarChart3,
         submenu: [
             {
                 id: "overview",  
@@ -33,7 +33,7 @@ const menuItems = [
     {
         id: "users",
         label: "Users",
-        icon: <Users className='w-5 h-5'/>,
+        icon: Users ,
         count: "2.4k",
         submenu: [
             {
@@ -53,39 +53,37 @@ const menuItems = [
     {
         id: "e-commerce",
         label: "E-Commerce",
-        icon: <ShoppingBag className='w-5 h-5'/>,
+        icon: ShoppingBag ,
     },
     {
         id: "inventory",
         label: "Inventory",
-        icon: <Package className='w-5 h-5'/>,
+        icon: Package,
     },
     {
         id: "transactions",
         label: "Transactions",
-        icon: <CreditCard className='w-5 h-5'/>,
+        icon: CreditCard ,
     },
     {
         id: "massages",
         label: "Massages",
-        icon: <MessagesSquare className='w-5 h-5'/>,
+        icon: MessagesSquare ,
     },
     {
         id: "calendar",
         label: "Calendar",
-        icon: <Calendar className='w-5 h-5'/>,
-        active: true,
-        badge: "New",
+        icon: Calendar ,
     },
     {
         id: "reports",
         label: "Reports",
-        icon: <FileText className='w-5 h-5'/>,
+        icon: FileText ,
     },
     {
         id: "settings",
         label: "Settings",
-        icon: <FileText className='w-5 h-5'/>,
+        icon: SettingsIcon ,
     },
 ]
 
@@ -108,8 +106,44 @@ function Sidebar() {
         </div>
         {/* Navigation */}
         <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
-            
+            {menuItems.map((item) => {
+                return (
+                    <div key={item.id}>
+                        <button>
+                            <div>
+                                <item.icon className='w-5 h-5'/>
+                            </div>
+                        </button>
+                    </div>
+                )
+            })}
         </nav>
+        {/* <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
+            {menuItems.map((item) => (
+                <div key={item.id}>
+                    <button className={`w-full flex items-center justify-between p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors ${item.active ? 'bg-slate-100 dark:bg-slate-800 font-semibold' : 'font-medium text-slate-600 dark:text-slate-300'}`}>      
+                        <div className='flex items-center space-x-3'>
+                            {item.icon}
+                            <span>{item.label}</span>
+                        </div>
+                        <div className='flex items-center space-x-2'>
+                            {item.count && <span className='text-xs bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full'>{item.count}</span>}
+                            {item.badge && <span className='text-xs bg-green-100 text-green-600 px-2 py-0.5 rounded-full'>{item.badge}</span>}
+                        </div>
+                    </button>
+
+                    {item.submenu && (  
+                        <div className='mt-2 ml-8 space-y-1'>
+                            {item.submenu.map((subItem) => (
+                                <button key={subItem.id} className='w-full text-left text-sm text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white transition-colors px-2 py-1 rounded-lg'>
+                                    {subItem.label}
+                                </button>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            ))}
+        </nav> */}
 
         {/* User Profile */} 
         <div className='p-4 border-t border-slate-200/50 dark:border-slate-700/50'>
