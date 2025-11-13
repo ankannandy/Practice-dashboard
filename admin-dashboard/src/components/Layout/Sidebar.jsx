@@ -1,6 +1,7 @@
 import React from 'react'
 import {
     BarChart3, Calendar, CreditCard, FileText, LayoutDashboard, MessagesSquare, Package, Settings, Users, ShoppingBag, Zap, SettingsIcon,
+    ChevronDown,
 } from 'lucide-react';
 
 const menuItems = [
@@ -88,9 +89,9 @@ const menuItems = [
 ]
 
 
-function Sidebar() {
+function Sidebar({collapsed, onToggle, currentPage, onPageChnage}) {
   return (
-    <div className=" w-72 transition-duration-300 ease-in-out bg-white/80dark:bg-slate-900/80backdrop-blur-xl border-r border-slate-200/50 dark:border-slate-700/50 flex flex-col relative z-10">
+    <div className={'${collapsed ? "w-20" : "w-72"} transition-duration-300 ease-in-out bg-white/80dark:bg-slate-900/80backdrop-blur-xl border-r border-slate-200/50 dark:border-slate-700/50 flex flex-col relative z-10'}>
         {/* Logo */}
         <div className="p-6 border-b border-slate-200/50 dark:border-slate-700/50 ">
             <div className="flex items-center space-x-3">
@@ -98,10 +99,10 @@ function Sidebar() {
                     <Zap className='w-6 h-6 text-white'/>
                 </div>
                 {/* Conditional Rendering */}
-                <div>
+                {!collapsed && <div>
                     <h1 className='text-xl font-bold text-slate-800 dark:text-white'>Nexus</h1>
                     <p className='text-xs text-slate-500 dark:text-slate-400'>Admin Panel</p>
-                </div>
+                </div>}
             </div>
         </div>
         {/* Navigation */}
@@ -109,11 +110,25 @@ function Sidebar() {
             {menuItems.map((item) => {
                 return (
                     <div key={item.id}>
-                        <button>
-                            <div>
+                        <button className='w-full flex items-center justify-between p-3 rounded-xl transition-all duration-200'>
+                            <div className='flex items-center space-x-3'>
                                 <item.icon className='w-5 h-5'/>
+                                {/* conditional rendering */}
+                                <>
+                                    <span className='font-medium ml-2'>{item.label}</span>
+                                    {item.badge && (<span className='text-xs bg-green-100 text-green-600 px-2 py-0.5 rounded-full'>{item.badge}</span>)}
+                                    {item.count && (<span className='text-xs bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full'>{item.count}</span>)}
+                                </>
                             </div>
+                            {item.submenu && <ChevronDown className='w-4 h-4 transition-transform'/>}
                         </button>
+
+                        {/* Sub menu */}
+                        <div className='ml-8 mt-2 space-y-1'>
+                            {/* {item.submenu.map((subItem) => {
+                                return <button>{subItem.label}</button>
+                            })} */}
+                        </div>
                     </div>
                 )
             })} 
